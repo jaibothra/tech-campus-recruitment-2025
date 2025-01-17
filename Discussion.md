@@ -2,7 +2,8 @@ Solutions Considered:
 
 Using mmap to reduce the time taken to filter through a 1TB logfile was my first intuition. mmap (memory mapping) allows you to map a file directly into memory instead of reading it line by line. This can be much faster because it reduces the overhead of file I/O. It works by creating a memory region that behaves like the file itself, allowing you to access parts of the file as if they were in memory, rather than physically loading each piece into memory one at a time.
 
-I implemented this approach in my first version of the code, which is saved as test.py. The idea was to use mmap to read the file all at once and search for lines starting with the target date. While it seemed like a good solution for handling large files, it ended up being slower than expected for my use case. I ditched that approach considering that I needed the program to return results as quickly as possible.
+I implemented this approach in my first version of the code, which is saved as test.py. https://docs.google.com/document/d/1yp69GaAmGbtWyX5HoL1ZUd9cZX0CE79eczfO0Lp4JYc/edit?usp=sharing 
+The idea was to use mmap to read the file all at once and search for lines starting with the target date. While it seemed like a good solution for handling large files, it ended up being slower than expected for my use case. I ditched that approach considering that I needed the program to return results as quickly as possible.
 
 Final Solution Summary:
 
